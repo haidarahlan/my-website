@@ -20,39 +20,49 @@ class HomePage extends StatelessWidget {
               constraints.maxWidth >= 768 && constraints.maxWidth < 1200;
           bool isDesktop = constraints.maxWidth >= 1200;
 
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                // AppBar
-                HomeAppBar(),
-
-                // Main Content - Centered
-                Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.only(
-                    top: isMobile ? 80 : 141,
-                  ),
-                  child: Center(
-                    child: Container(
-                      width: double.infinity,
-                      constraints: BoxConstraints(
-                        maxWidth: _getMaxWidth(isMobile, isTablet, isDesktop),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: _getHorizontalPadding(isMobile, isTablet),
-                      ),
-                      child: _buildResponsiveLayout(isMobile, isTablet),
-                    ),
-                  ),
+          return CustomScrollView(
+            slivers: [
+              // Fixed AppBar menggunakan SliverPersistentHeader
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: _AppBarDelegate(
+                  child: HomeAppBar(),
                 ),
+              ),
 
-                // Bottom spacing
-                SizedBox(height: isMobile ? 40 : 80),
+              // Main content
+              SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    // Main Content - Centered
+                    Container(
+                      width: double.infinity,
+                      margin: EdgeInsets.only(
+                        top: isMobile ? 80 : 141,
+                      ),
+                      child: Center(
+                        child: Container(
+                          width: double.infinity,
+                          constraints: BoxConstraints(
+                            maxWidth:
+                                _getMaxWidth(isMobile, isTablet, isDesktop),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                _getHorizontalPadding(isMobile, isTablet),
+                          ),
+                          child: _buildResponsiveLayout(isMobile, isTablet),
+                        ),
+                      ),
+                    ),
 
-                // footer
-              ],
-            ),
+                    // Bottom spacing
+                    SizedBox(height: isMobile ? 40 : 80),
+                  ],
+                ),
+              ),
+            ],
           );
         }),
       ),
@@ -85,19 +95,12 @@ class HomePage extends StatelessWidget {
   Widget _buildMobileLayout() {
     return Column(
       children: [
-        // Profile & Description Card
         HomeProfileDescriptionCardUi(),
         const SizedBox(height: 20),
-
-        // Flutter Avatar
         HomeAvatarSkillCardUi(),
         const SizedBox(height: 20),
-
-        // Projects Section
         HomeProjectCardUi(),
         const SizedBox(height: 20),
-
-        // Experience Section
         HomeExperienceCardUi(),
       ],
     );
@@ -107,18 +110,14 @@ class HomePage extends StatelessWidget {
   Widget _buildTabletLayout() {
     return Column(
       children: [
-        // Top section - Profile and Avatar side by side
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Profile & Description Card
             Expanded(
               flex: 2,
               child: HomeProfileDescriptionCardUi(),
             ),
             const SizedBox(width: 24),
-
-            // Flutter Avatar
             Expanded(
               flex: 1,
               child: HomeAvatarSkillCardUi(),
@@ -126,8 +125,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 24),
-
-        // Bottom section - Projects and Experience stacked
         HomeProjectCardUi(),
         const SizedBox(height: 20),
         HomeExperienceCardUi(),
@@ -139,18 +136,14 @@ class HomePage extends StatelessWidget {
   Widget _buildDesktopLayout() {
     return Column(
       children: [
-        // Top section
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Profile & Description Card
             Expanded(
               flex: 3,
               child: HomeProfileDescriptionCardUi(),
             ),
             const SizedBox(width: 44),
-
-            // Flutter Avatar
             Expanded(
               flex: 1,
               child: HomeAvatarSkillCardUi(),
@@ -158,24 +151,44 @@ class HomePage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
-
-        // Bottom section
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Projects Section
-            Expanded(
-              child: HomeProjectCardUi(),
-            ),
+            Expanded(child: HomeProjectCardUi()),
             const SizedBox(width: 44),
-
-            // Experience Section
-            Expanded(
-              child: HomeExperienceCardUi(),
-            ),
+            Expanded(child: HomeExperienceCardUi()),
           ],
         ),
       ],
     );
+  }
+}
+
+// Custom delegate untuk SliverPersistentHeader
+class _AppBarDelegate extends SliverPersistentHeaderDelegate {
+  final Widget child;
+
+  _AppBarDelegate({
+    required this.child,
+  });
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return SizedBox(
+      height: 80,
+      child: child,
+    );
+  }
+
+  @override
+  double get maxExtent => 80;
+
+  @override
+  double get minExtent => 80;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return oldDelegate != this;
   }
 }
