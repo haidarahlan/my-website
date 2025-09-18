@@ -17,6 +17,9 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// Directory path: assets/icons/logo
+  $AssetsIconsLogoGen get logo => const $AssetsIconsLogoGen();
+
   /// File path: assets/icons/menu_burger.svg
   SvgGenImage get menuBurger =>
       const SvgGenImage('assets/icons/menu_burger.svg');
@@ -38,6 +41,24 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [avatarSkill, myAvatar];
+}
+
+class $AssetsIconsLogoGen {
+  const $AssetsIconsLogoGen();
+
+  /// File path: assets/icons/logo/github.svg
+  SvgGenImage get github => const SvgGenImage('assets/icons/logo/github.svg');
+
+  /// File path: assets/icons/logo/linkedin.svg
+  SvgGenImage get linkedin =>
+      const SvgGenImage('assets/icons/logo/linkedin.svg');
+
+  /// File path: assets/icons/logo/linkedinnew.svg
+  SvgGenImage get linkedinnew =>
+      const SvgGenImage('assets/icons/logo/linkedinnew.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [github, linkedin, linkedinnew];
 }
 
 class Assets {

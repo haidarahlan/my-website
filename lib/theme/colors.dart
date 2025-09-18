@@ -8,8 +8,9 @@ class AppColors {
   static Color tersier = const Color(0xFF29ABE2);
   static Color tersierCard = const Color(0xFF0A90D5);
   static Color backgroundIcon = const Color(0xFF29ABE2).withValues(alpha: 0.24);
-  static Color black = const Color(0xFF000000);
   static Color white = const Color(0xFFFFFFFF);
+  static Color black = const Color(0xFF000000);
+  static Color blackCard = const Color(0xFF24241C);
   static Color borderMarker = const Color(0xFFFFFFF0);
   static Color borderMarkerDark = const Color.fromARGB(255, 244, 244, 244);
   static Color blue = const Color(0xFF0077FF);

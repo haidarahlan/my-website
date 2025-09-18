@@ -11,7 +11,7 @@ class HomeAppBar extends StatelessWidget {
       width: 200,
       constraints: BoxConstraints(maxWidth: 300),
       margin: EdgeInsets.only(right: 259),
-      padding: EdgeInsets.symmetric(vertical: 22, horizontal: 23),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(

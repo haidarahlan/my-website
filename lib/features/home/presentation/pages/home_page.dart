@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xff161513),
       body: SafeArea(
         child: LayoutBuilder(builder: (context, constraints) {
-          // Determine if it's mobile, tablet, or desktop
+          //lebar layout mobile, tablet, or desktop
           bool isMobile = constraints.maxWidth < 768;
           bool isTablet =
               constraints.maxWidth >= 768 && constraints.maxWidth < 1200;
@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
 
           return SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 // AppBar
                 HomeAppBar(),
@@ -48,6 +49,8 @@ class HomePage extends StatelessWidget {
 
                 // Bottom spacing
                 SizedBox(height: isMobile ? 40 : 80),
+
+                // footer
               ],
             ),
           );
@@ -65,7 +68,7 @@ class HomePage extends StatelessWidget {
   double _getHorizontalPadding(bool isMobile, bool isTablet) {
     if (isMobile) return 20;
     if (isTablet) return 40;
-    return 60; // Reduced padding for desktop since we're using maxWidth
+    return 60;
   }
 
   Widget _buildResponsiveLayout(bool isMobile, bool isTablet) {
