@@ -4,6 +4,7 @@ import 'package:haidar_website/features/home/presentation/widgets/home_responsiv
 import 'package:haidar_website/features/home/presentation/widgets/profile_description/profile_card_sosmed_ui.dart';
 import 'package:haidar_website/gen/assets.gen.dart';
 import 'package:haidar_website/theme/colors.dart';
+import 'package:haidar_website/theme/text_style.dart';
 import 'package:haidar_website/widget/app_button.dart';
 
 class HomeProfileDescriptionCardUi extends StatelessWidget {
@@ -42,24 +43,22 @@ class HomeProfileDescriptionCardUi extends StatelessWidget {
                           'Hi, Im Haidar',
                           softWrap: true,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: primaryTextStyle.copyWith(
                             color: Colors.white,
                             fontSize: isMobile ? 15 : 20,
                             fontWeight: FontWeight.w400,
                             height: 1.2,
                           ),
                         ),
-                        Text(
-                          'Mobile Developer',
-                          softWrap: true,
-                          maxLines: 1,
-                          style: TextStyle(
-                            color: AppColors.grey2,
-                            fontSize: isMobile ? 10 : 15,
-                            fontWeight: FontWeight.w400,
-                            height: 1.2,
-                          ),
-                        ),
+                        Text('Mobile Developer',
+                            softWrap: true,
+                            maxLines: 1,
+                            style: primaryTextStyle.copyWith(
+                              color: AppColors.grey2,
+                              fontSize: isMobile ? 10 : 15,
+                              fontWeight: FontWeight.w400,
+                              height: 1.2,
+                            )),
                       ],
                     ),
                   ),
@@ -79,7 +78,7 @@ class HomeProfileDescriptionCardUi extends StatelessWidget {
               const SizedBox(height: 40),
               Text(
                 'I do code and\nbuild apps for it',
-                style: TextStyle(
+                style: primaryTextStyle.copyWith(
                   color: Colors.white,
                   fontSize: isMobile ? 24 : 53,
                   fontWeight: FontWeight.bold,
@@ -91,7 +90,7 @@ class HomeProfileDescriptionCardUi extends StatelessWidget {
                 constraints: BoxConstraints(maxWidth: isMobile ? 456 : 565),
                 child: Text(
                   'I am a seasoned Mobile Developer with over 2 years of professional experience, specializing in front-end developmnet. My expertise lies in crafting mobile UI and scalable state management blocand firebase for backend as a service.',
-                  style: TextStyle(
+                  style: primaryTextStyle.copyWith(
                     color: AppColors.grey3,
                     fontSize: isMobile ? 14 : 16,
                     height: 1.5,

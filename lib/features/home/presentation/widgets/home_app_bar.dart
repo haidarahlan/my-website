@@ -16,7 +16,7 @@ class HomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: const Color(0xff161513),
+      color: Colors.transparent,
       child: Align(
         alignment: Alignment.topRight,
         child: Container(

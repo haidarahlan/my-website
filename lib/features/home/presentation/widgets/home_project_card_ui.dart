@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:haidar_website/features/home/presentation/widgets/project_ui/project_card_ui.dart';
+import 'package:haidar_website/gen/assets.gen.dart';
+import 'package:haidar_website/theme/colors.dart';
 
 class HomeProjectCardUi extends StatelessWidget {
   const HomeProjectCardUi({super.key});
@@ -7,7 +10,6 @@ class HomeProjectCardUi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: const LinearGradient(
@@ -18,21 +20,65 @@ class HomeProjectCardUi extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
-            "Project",
-            style: TextStyle(color: Colors.white, fontSize: 18),
+        children: [
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 84, vertical: 16),
+            decoration: BoxDecoration(
+              color: AppColors.textBlack.withValues(alpha: 0.3),
+            ),
+            child: Text(
+              "Project",
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: TextStyle(color: Colors.white, fontSize: 30),
+            ),
           ),
           SizedBox(height: 12),
-          Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: [
-              FlutterLogo(size: 40),
-              FlutterLogo(size: 40),
-              FlutterLogo(size: 40),
-              FlutterLogo(size: 40),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Wrap(
+              spacing: 19,
+              runSpacing: 40,
+              children: [
+                ProjectCardUi(
+                  title: "Noglab App",
+                  image: Assets.images.myAvatar.image(
+                    width: 30,
+                    height: 30,
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {},
+                ),
+                ProjectCardUi(
+                  title: "Smart Mind Center App",
+                  image: Assets.images.myAvatar.image(
+                    width: 30,
+                    height: 30,
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {},
+                ),
+                ProjectCardUi(
+                  title: "Stevor Express",
+                  image: Assets.images.myAvatar.image(
+                    width: 30,
+                    height: 30,
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {},
+                ),
+                ProjectCardUi(
+                  title: "Website WarminUp",
+                  image: Assets.images.myAvatar.image(
+                    width: 30,
+                    height: 30,
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {},
+                ),
+              ],
+            ),
           )
         ],
       ),

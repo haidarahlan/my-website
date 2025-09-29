@@ -154,9 +154,9 @@ class HomePage extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(child: HomeProjectCardUi()),
+            Expanded(flex: 1, child: HomeProjectCardUi()),
             const SizedBox(width: 44),
-            Expanded(child: HomeExperienceCardUi()),
+            Expanded(flex: 2, child: HomeExperienceCardUi()),
           ],
         ),
       ],

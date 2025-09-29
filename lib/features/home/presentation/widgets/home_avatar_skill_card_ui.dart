@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haidar_website/gen/assets.gen.dart';
+import 'package:haidar_website/theme/text_style.dart';
 
 class HomeAvatarSkillCardUi extends StatelessWidget {
   const HomeAvatarSkillCardUi({super.key});
@@ -31,7 +32,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
           ),
 
           // Title "Skills" di atas
-          const Positioned(
+          Positioned(
             top: 24,
             left: 24,
             right: 16,
@@ -40,7 +41,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
               children: [
                 Text(
                   "Skills",
-                  style: TextStyle(
+                  style: primaryTextStyle.copyWith(
                     color: Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -67,13 +68,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
           Positioned(
             left: 20,
             bottom: 20,
-            child: _buildSkillIcon(
-              child: Icon(
-                Icons.flutter_dash_sharp,
-                color: Colors.blue,
-                size: 24,
-              ),
-            ),
+            child: _buildSkillIcon(child: FlutterLogo(size: 30)),
           ),
 
           // Dart Logo - kanan atas
