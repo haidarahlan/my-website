@@ -20,20 +20,34 @@ class HomeExperienceCardUi extends StatelessWidget {
           position: "contract",
           period: "Jan 2025 - Present",
           description:
-              "Handled iOS deployment process including building, signing, and uploading the app to AppStore Connect, ensuring proper compliance and publication standards."),
+              "Handled iOS deployment process including building, signing, and uploading the app to AppStore Connect, ensuring proper compliance and publication standards.",
+          companyLogo: Assets.images.logoStevor.image(
+            width: 35,
+            height: 35,
+            fit: BoxFit.cover,
+          )),
       ExperienceModel(
-        company: "Mobile Developer at WarminUP",
-        position: "Internship",
-        period: "Jun 2023 - Jul 2024",
-        description:
-            "Developed the Ngolab mobile application and maintained the WarminUP landing page website, ensuring stable functionality and continuous improvements.",
-      ),
+          company: "Mobile Developer at WarminUP",
+          position: "Internship",
+          period: "Jun 2023 - Jul 2024",
+          description:
+              "Developed the Ngolab mobile application and maintained the WarminUP landing page website, ensuring stable functionality and continuous improvements.",
+          companyLogo: Assets.images.logoWarmingup.image(
+            width: 35,
+            height: 35,
+            fit: BoxFit.cover,
+          )),
       ExperienceModel(
           company: "Practicum Asistant at Telkom University",
           position: "Part Time",
           period: "Sep 2023 - Jan 2024",
           description:
-              "Acted as a Teaching Assistant for Basic Software Engineering Material Training at the First Expert Diplomatic Information Education and Training Center, Ministry of Foreign Affairs. This role involved preparing training materials and grading student assignments for participants in the Formation of Functional Positions program."),
+              "Acted as a Teaching Assistant for Basic Software Engineering Material Training at the First Expert Diplomatic Information Education and Training Center, Ministry of Foreign Affairs. This role involved preparing training materials and grading student assignments for participants in the Formation of Functional Positions program.",
+          companyLogo: Assets.images.logoTelkom.image(
+            width: 35,
+            height: 35,
+            fit: BoxFit.cover,
+          )),
     ];
 
     return Container(
@@ -77,11 +91,7 @@ class HomeExperienceCardUi extends StatelessWidget {
                     // Logo/Image
                     ClipRRect(
                       borderRadius: BorderRadius.circular(100),
-                      child: Assets.images.certification2.image(
-                        width: 35,
-                        height: 35,
-                        fit: BoxFit.cover,
-                      ),
+                      child: exp.companyLogo,
                     ),
                     const SizedBox(width: 15),
 
