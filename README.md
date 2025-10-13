@@ -1,16 +1,16 @@
-# haidar_website
+Haidar Portfolio Website
 
-A new Flutter project.
+<div align="center">
+A modern, responsive portfolio website built with Flutter
+Live Demo • Report Bug • Request Feature
+</div>
 
-## Getting Started
+About The Project
+This portfolio website showcases my work, skills, and professional journey as a developer. Built with Flutter for seamless cross-platform compatibility, it delivers a beautiful and performant experience across web, mobile, and desktop platforms.
+Key Features
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Modern Design - Clean, minimalist interface with smooth animations
+Fully Responsive - Optimized for all screen sizes and devices
+High Performance - Fast loading times and smooth interactions
+Cross-Platform - Works seamlessly on web, iOS, and Android
+Accessible - WCAG compliant for inclusive user experience
