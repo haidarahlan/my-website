@@ -3,8 +3,8 @@
 <div align="center">
   <strong>A modern, responsive portfolio website built with Flutter</strong><br>
   <!-- <a href="#">Live Demo</a> •  -->
-  <a href="https://github.com/haidarahlanz/my-website/issues">Report Bug</a> • 
-  <a href="https://github.com/haidarahlanz/my-website/issues">Request Feature</a>
+  <a href="https://www.instagram.com/haidarahlanz/">Instagram</a> • 
+  <a href="https://www.linkedin.com/in/haidar-ahlan-ghaffar/">Linkedin</a>
 </div>
 
 ---
