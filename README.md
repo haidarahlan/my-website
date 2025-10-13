@@ -2,7 +2,7 @@
 
 <div align="center">
   <strong>A modern, responsive portfolio website built with Flutter</strong><br>
-  <a href="https://your-live-demo-link.com">Live Demo</a> • 
+  <!-- <a href="#">Live Demo</a> •  -->
   <a href="https://github.com/username/haidar-portfolio/issues">Report Bug</a> • 
   <a href="https://github.com/username/haidar-portfolio/issues">Request Feature</a>
 </div>
