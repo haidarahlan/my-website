@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:haidar_website/gen/assets.gen.dart';
-import 'package:haidar_website/theme/text_style.dart';
 
 class HomeAvatarSkillCardUi extends StatelessWidget {
-  const HomeAvatarSkillCardUi({super.key});
+  final bool? isMobile;
+  const HomeAvatarSkillCardUi({
+    super.key,
+    this.isMobile,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +42,6 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Skills",
-                  style: primaryTextStyle.copyWith(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 12),
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
@@ -66,14 +60,14 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
 
           // Flutter Logo - kiri atas
           Positioned(
-            left: 20,
+            left: isMobile == true ? 100 : 20,
             bottom: 20,
             child: _buildSkillIcon(child: FlutterLogo(size: 30)),
           ),
 
           // Dart Logo - kanan atas
           Positioned(
-            left: 20,
+            left: isMobile == true ? 100 : 20,
             bottom: 80,
             child: _buildSkillIcon(
               child: Container(
@@ -99,7 +93,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
 
           // Firebase Logo - kanan tengah
           Positioned(
-            left: 20,
+            left: isMobile == true ? 100 : 20,
             bottom: 140,
             child: _buildSkillIcon(
               child: Icon(
@@ -112,7 +106,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
 
           // Git Logo - kiri tengah
           Positioned(
-            right: 20,
+            right: isMobile == true ? 100 : 20,
             bottom: 140,
             child: _buildSkillIcon(
               child: Container(
@@ -133,7 +127,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
 
           // API Logo - kanan bawah
           Positioned(
-            right: 20,
+            right: isMobile == true ? 100 : 20,
             bottom: 80,
             child: _buildSkillIcon(
               child: Container(
@@ -159,7 +153,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
 
           // Testing Logo - kiri bawah
           Positioned(
-            right: 20,
+            right: isMobile == true ? 100 : 20,
             bottom: 20,
             child: _buildSkillIcon(
               child: Icon(

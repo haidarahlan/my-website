@@ -35,12 +35,40 @@ class $AssetsImagesGen {
   AssetGenImage get avatarSkill =>
       const AssetGenImage('assets/images/avatar_skill.png');
 
+  /// File path: assets/images/certification_1.png
+  AssetGenImage get certification1 =>
+      const AssetGenImage('assets/images/certification_1.png');
+
+  /// File path: assets/images/certification_2.png
+  AssetGenImage get certification2 =>
+      const AssetGenImage('assets/images/certification_2.png');
+
+  /// File path: assets/images/certification_3.png
+  AssetGenImage get certification3 =>
+      const AssetGenImage('assets/images/certification_3.png');
+
+  /// File path: assets/images/certification_4.png
+  AssetGenImage get certification4 =>
+      const AssetGenImage('assets/images/certification_4.png');
+
+  /// File path: assets/images/certification_5.png
+  AssetGenImage get certification5 =>
+      const AssetGenImage('assets/images/certification_5.png');
+
   /// File path: assets/images/my_avatar.png
   AssetGenImage get myAvatar =>
       const AssetGenImage('assets/images/my_avatar.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [avatarSkill, myAvatar];
+  List<AssetGenImage> get values => [
+        avatarSkill,
+        certification1,
+        certification2,
+        certification3,
+        certification4,
+        certification5,
+        myAvatar
+      ];
 }
 
 class $AssetsIconsLogoGen {
@@ -49,16 +77,12 @@ class $AssetsIconsLogoGen {
   /// File path: assets/icons/logo/github.svg
   SvgGenImage get github => const SvgGenImage('assets/icons/logo/github.svg');
 
-  /// File path: assets/icons/logo/linkedin.svg
-  SvgGenImage get linkedin =>
-      const SvgGenImage('assets/icons/logo/linkedin.svg');
-
   /// File path: assets/icons/logo/linkedinnew.svg
   SvgGenImage get linkedinnew =>
       const SvgGenImage('assets/icons/logo/linkedinnew.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [github, linkedin, linkedinnew];
+  List<SvgGenImage> get values => [github, linkedinnew];
 }
 
 class Assets {

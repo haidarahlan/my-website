@@ -34,7 +34,7 @@ class ProjectCardUi extends StatelessWidget {
               title ?? "",
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              maxLines: 1,
+              maxLines: 2,
               style: primaryTextStyle.copyWith(
                 color: Colors.white,
                 fontSize: 14,

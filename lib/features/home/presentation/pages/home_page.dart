@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:haidar_website/features/home/presentation/widgets/home_app_bar.dart';
 import 'package:haidar_website/features/home/presentation/widgets/home_avatar_skill_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/home_certificate_card_ui.dart';
 import 'package:haidar_website/features/home/presentation/widgets/home_experience_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/home_contact_card_ui.dart';
 import 'package:haidar_website/features/home/presentation/widgets/home_profile_description_card_ui.dart';
 import 'package:haidar_website/features/home/presentation/widgets/home_project_card_ui.dart';
 
@@ -72,7 +74,7 @@ class HomePage extends StatelessWidget {
   double _getMaxWidth(bool isMobile, bool isTablet, bool isDesktop) {
     if (isMobile) return double.infinity;
     if (isTablet) return 1000;
-    return 1400; // Desktop max width
+    return 1400;
   }
 
   double _getHorizontalPadding(bool isMobile, bool isTablet) {
@@ -97,11 +99,17 @@ class HomePage extends StatelessWidget {
       children: [
         HomeProfileDescriptionCardUi(),
         const SizedBox(height: 20),
-        HomeAvatarSkillCardUi(),
+        HomeAvatarSkillCardUi(
+          isMobile: true,
+        ),
         const SizedBox(height: 20),
         HomeProjectCardUi(),
         const SizedBox(height: 20),
         HomeExperienceCardUi(),
+        const SizedBox(height: 20),
+        HomeCertificateCardUi(),
+        const SizedBox(height: 20),
+        HomeMusicFavCard(),
       ],
     );
   }
@@ -128,6 +136,10 @@ class HomePage extends StatelessWidget {
         HomeProjectCardUi(),
         const SizedBox(height: 20),
         HomeExperienceCardUi(),
+        const SizedBox(height: 20),
+        HomeCertificateCardUi(),
+        const SizedBox(height: 20),
+        HomeMusicFavCard(),
       ],
     );
   }
@@ -157,6 +169,15 @@ class HomePage extends StatelessWidget {
             Expanded(flex: 1, child: HomeProjectCardUi()),
             const SizedBox(width: 44),
             Expanded(flex: 2, child: HomeExperienceCardUi()),
+          ],
+        ),
+        const SizedBox(height: 30),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(flex: 2, child: HomeCertificateCardUi()),
+            const SizedBox(width: 44),
+            Expanded(flex: 1, child: HomeMusicFavCard()),
           ],
         ),
       ],

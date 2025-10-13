@@ -1,35 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:haidar_website/features/home/presentation/model/experience_model.dart';
+import 'package:haidar_website/gen/assets.gen.dart';
 import 'package:haidar_website/theme/colors.dart';
+import 'package:haidar_website/theme/text_style.dart';
 
 class HomeExperienceCardUi extends StatelessWidget {
-  const HomeExperienceCardUi({super.key});
+  final bool isMobile;
+
+  const HomeExperienceCardUi({
+    super.key,
+    this.isMobile = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     List<ExperienceModel> experiencesList = [
       ExperienceModel(
-        company: "Stevor Express",
-        position: "Flutter Developer - contract",
-        period: "Jan 2025 - Present",
-      ),
+          company: "Flutter Developer at Stevor Express",
+          position: "contract",
+          period: "Jan 2025 - Present",
+          description:
+              "Handled iOS deployment process including building, signing, and uploading the app to AppStore Connect, ensuring proper compliance and publication standards."),
       ExperienceModel(
-        company: "WarminUP",
-        position: "Mobile Developer - Internship",
+        company: "Mobile Developer at WarminUP",
+        position: "Internship",
         period: "Jun 2023 - Jul 2024",
+        description:
+            "Developed the Ngolab mobile application and maintained the WarminUP landing page website, ensuring stable functionality and continuous improvements.",
       ),
       ExperienceModel(
-        company: "Telkom University",
-        position: "Asisten Praktikum",
-        period: "Sep 2023 - Jan 2024",
-      ),
+          company: "Practicum Asistant at Telkom University",
+          position: "Part Time",
+          period: "Sep 2023 - Jan 2024",
+          description:
+              "Acted as a Teaching Assistant for Basic Software Engineering Material Training at the First Expert Diplomatic Information Education and Training Center, Ministry of Foreign Affairs. This role involved preparing training materials and grading student assignments for participants in the Formation of Functional Positions program."),
     ];
 
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: const LinearGradient(
-          colors: [Color(0xFF3F2B96), Color(0xFFA8C0FF)],
+          colors: [Color(0xFF202030), Color(0xFF5C41C8)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -55,21 +66,62 @@ class HomeExperienceCardUi extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: experiencesList.length,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+            ),
             itemBuilder: (context, index) {
               final exp = experiencesList[index];
               return ListTile(
-                title: Text(
-                  exp.company,
-                  style: const TextStyle(color: Colors.white),
+                contentPadding: EdgeInsets.symmetric(vertical: 15),
+                title: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadiusGeometry.circular(100),
+                      child: Assets.images.certification2.image(
+                        width: 35,
+                        height: 35,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                    Text(
+                      exp.company,
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 16,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ],
                 ),
-                subtitle: Text(
-                  exp.position,
-                  style: const TextStyle(color: Colors.white70),
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text(
+                    exp.description ?? '',
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 10,
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 10,
+                      color: AppColors.grey2,
+                    ),
+                  ),
                 ),
-                trailing: Text(
-                  exp.period,
-                  style: const TextStyle(color: Colors.white70),
+                trailing: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      exp.position,
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 12,
+                        color: AppColors.grey2,
+                      ),
+                    ),
+                    Text(
+                      exp.period,
+                      style: const TextStyle(color: Colors.white70),
+                    ),
+                  ],
                 ),
               );
             },

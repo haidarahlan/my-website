@@ -5,7 +5,6 @@ import 'package:haidar_website/features/home/presentation/widgets/profile_descri
 import 'package:haidar_website/gen/assets.gen.dart';
 import 'package:haidar_website/theme/colors.dart';
 import 'package:haidar_website/theme/text_style.dart';
-import 'package:haidar_website/widget/app_button.dart';
 
 class HomeProfileDescriptionCardUi extends StatelessWidget {
   const HomeProfileDescriptionCardUi({super.key});
@@ -97,20 +96,8 @@ class HomeProfileDescriptionCardUi extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 30),
               SizedBox(height: isMobile ? 16 : 24),
-              // Add buttons or other content here
-              Row(
-                children: [
-                  AppButton(
-                    title: 'My Resume',
-                    height: 40,
-                    width: 200,
-                    elevation: 3,
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-              SizedBox(width: isMobile ? 8 : 12),
             ],
           ),
         );

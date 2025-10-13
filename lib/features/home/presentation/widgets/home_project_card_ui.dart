@@ -37,47 +37,61 @@ class HomeProjectCardUi extends StatelessWidget {
           SizedBox(height: 12),
           Padding(
             padding: const EdgeInsets.all(30.0),
-            child: Wrap(
-              spacing: 19,
-              runSpacing: 40,
-              children: [
-                ProjectCardUi(
-                  title: "Noglab App",
-                  image: Assets.images.myAvatar.image(
-                    width: 30,
-                    height: 30,
-                    fit: BoxFit.cover,
+            child: Center(
+              child: Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                children: [
+                  ProjectCardUi(
+                    title: "Noglab App",
+                    image: ClipRRect(
+                      borderRadius: BorderRadius.circular(2),
+                      child: Assets.images.certification2.image(
+                        width: 30,
+                        height: 30,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    onTap: () {},
                   ),
-                  onTap: () {},
-                ),
-                ProjectCardUi(
-                  title: "Smart Mind Center App",
-                  image: Assets.images.myAvatar.image(
-                    width: 30,
-                    height: 30,
-                    fit: BoxFit.cover,
+                  ProjectCardUi(
+                    title: "Smart Mind Center App",
+                    image: ClipRRect(
+                      borderRadius: BorderRadius.circular(2),
+                      child: Assets.images.certification2.image(
+                        width: 30,
+                        height: 30,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    onTap: () {},
                   ),
-                  onTap: () {},
-                ),
-                ProjectCardUi(
-                  title: "Stevor Express",
-                  image: Assets.images.myAvatar.image(
-                    width: 30,
-                    height: 30,
-                    fit: BoxFit.cover,
+                  ProjectCardUi(
+                    title: "Stevor Express",
+                    image: ClipRRect(
+                      borderRadius: BorderRadius.circular(2),
+                      child: Assets.images.certification2.image(
+                        width: 30,
+                        height: 30,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    onTap: () {},
                   ),
-                  onTap: () {},
-                ),
-                ProjectCardUi(
-                  title: "Website WarminUp",
-                  image: Assets.images.myAvatar.image(
-                    width: 30,
-                    height: 30,
-                    fit: BoxFit.cover,
+                  ProjectCardUi(
+                    title: "Website WarminUp",
+                    image: ClipRRect(
+                      borderRadius: BorderRadius.circular(2),
+                      child: Assets.images.certification2.image(
+                        width: 30,
+                        height: 30,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    onTap: () {},
                   ),
-                  onTap: () {},
-                ),
-              ],
+                ],
+              ),
             ),
           )
         ],
