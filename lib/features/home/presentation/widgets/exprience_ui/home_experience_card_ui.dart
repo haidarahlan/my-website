@@ -66,18 +66,17 @@ class HomeExperienceCardUi extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: experiencesList.length,
-            padding: EdgeInsets.symmetric(
-              horizontal: 30,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 30),
             itemBuilder: (context, index) {
               final exp = experiencesList[index];
-              return ListTile(
-                contentPadding: EdgeInsets.symmetric(vertical: 15),
-                title: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Logo/Image
                     ClipRRect(
-                      borderRadius: BorderRadiusGeometry.circular(100),
+                      borderRadius: BorderRadius.circular(100),
                       child: Assets.images.certification2.image(
                         width: 35,
                         height: 35,
@@ -85,47 +84,65 @@ class HomeExperienceCardUi extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 15),
-                    Text(
-                      exp.company,
-                      style: primaryTextStyle.copyWith(
-                        fontSize: 16,
-                        color: AppColors.white,
+
+                    // Content (Company, Description)
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Company Name
+                          Text(
+                            exp.company,
+                            style: primaryTextStyle.copyWith(
+                              fontSize: 16,
+                              color: AppColors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+
+                          // Description
+                          ConstrainedBox(
+                            constraints: BoxConstraints(maxWidth: 450),
+                            child: Text(
+                              exp.description ?? '',
+                              style: primaryTextStyle.copyWith(
+                                fontSize: 10,
+                                color: AppColors.grey2,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                subtitle: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Text(
-                    exp.description ?? '',
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 10,
-                    style: primaryTextStyle.copyWith(
-                      fontSize: 10,
-                      color: AppColors.grey2,
-                    ),
-                  ),
-                ),
-                trailing: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      exp.position,
-                      style: primaryTextStyle.copyWith(
-                        fontSize: 12,
-                        color: AppColors.grey2,
-                      ),
-                    ),
-                    Text(
-                      exp.period,
-                      style: const TextStyle(color: Colors.white70),
+
+                    const SizedBox(width: 15),
+
+                    // Position & Period
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          exp.position,
+                          style: primaryTextStyle.copyWith(
+                            fontSize: 12,
+                            color: AppColors.grey2,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          exp.period,
+                          style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               );
             },
-          ),
+          )
         ],
       ),
     );

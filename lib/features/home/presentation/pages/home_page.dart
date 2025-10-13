@@ -1,12 +1,14 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:haidar_website/features/home/presentation/widgets/home_app_bar.dart';
-import 'package:haidar_website/features/home/presentation/widgets/home_avatar_skill_card_ui.dart';
-import 'package:haidar_website/features/home/presentation/widgets/home_certificate_card_ui.dart';
-import 'package:haidar_website/features/home/presentation/widgets/home_experience_card_ui.dart';
-import 'package:haidar_website/features/home/presentation/widgets/home_contact_card_ui.dart';
-import 'package:haidar_website/features/home/presentation/widgets/home_profile_description_card_ui.dart';
-import 'package:haidar_website/features/home/presentation/widgets/home_project_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/avatar_ui/home_avatar_skill_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/certificate_ui/home_certificate_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/exprience_ui/home_experience_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/contact_ui/home_contact_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/profile_description/home_profile_description_card_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/project_ui/home_project_card_ui.dart';
 
+@RoutePage()
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 

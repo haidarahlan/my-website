@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haidar_website/features/home/presentation/widgets/home_avatar_ui.dart';
+import 'package:haidar_website/features/home/presentation/widgets/avatar_ui/home_avatar_ui.dart';
 import 'package:haidar_website/features/home/presentation/widgets/home_responsive_card.dart';
 import 'package:haidar_website/features/home/presentation/widgets/profile_description/profile_card_sosmed_ui.dart';
 import 'package:haidar_website/gen/assets.gen.dart';
