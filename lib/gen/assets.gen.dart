@@ -51,6 +51,10 @@ class $AssetsImagesGen {
   AssetGenImage get certification5 =>
       const AssetGenImage('assets/images/certification_5.png');
 
+  /// File path: assets/images/icon_laptop.svg
+  SvgGenImage get iconLaptop =>
+      const SvgGenImage('assets/images/icon_laptop.svg');
+
   /// File path: assets/images/logo_stevor.png
   AssetGenImage get logoStevor =>
       const AssetGenImage('assets/images/logo_stevor.png');
@@ -68,13 +72,14 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/my_avatar.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
         avatarSkill,
         certification1,
         certification2,
         certification3,
         certification4,
         certification5,
+        iconLaptop,
         logoStevor,
         logoTelkom,
         logoWarmingup,

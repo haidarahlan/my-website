@@ -26,6 +26,7 @@ dependencies:
 
   flutter_screenutil: ^5.9.3
   loader_overlay: ^5.0.0
+  connectivity_plus: ^7.0.0
 
 dev_dependencies:
   flutter_gen_runner: 5.3.1
