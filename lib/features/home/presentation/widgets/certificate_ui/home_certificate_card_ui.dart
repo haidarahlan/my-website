@@ -3,7 +3,8 @@ import 'package:haidar_website/gen/assets.gen.dart';
 import 'package:haidar_website/theme/colors.dart';
 
 class HomeCertificateCardUi extends StatelessWidget {
-  const HomeCertificateCardUi({super.key});
+  final bool isMobile;
+  const HomeCertificateCardUi({super.key,this.isMobile = false});
 
   void _showImageDialog(BuildContext context, AssetGenImage image) {
     showDialog(
@@ -71,7 +72,7 @@ class HomeCertificateCardUi extends StatelessWidget {
     ];
 
     return Container(
-      height: 500,
+      height: isMobile ? null : 500,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),

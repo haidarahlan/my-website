@@ -3,12 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:haidar_website/theme/colors.dart';
 
 class HomeContactCardUi extends StatelessWidget {
-  const HomeContactCardUi({super.key});
+  final bool isMobile;
+  const HomeContactCardUi({super.key, this.isMobile = false});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: isMobile ? null : 500,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: LinearGradient(
@@ -20,98 +21,100 @@ class HomeContactCardUi extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 84, vertical: 16),
-            decoration: BoxDecoration(
-              color: AppColors.textBlack.withValues(alpha: 0.3),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(24),
-                topRight: Radius.circular(24),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(horizontal: 84, vertical: 16),
+              decoration: BoxDecoration(
+                color: AppColors.textBlack.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                ),
+              ),
+              child: Text(
+                "Contact Me",
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-            child: Text(
-              "Contact Me",
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Email Section
-                _ContactInfoItem(
-                  icon: Icons.email_rounded,
-                  title: "Email",
-                  content: "ahlangaffar@gmail.com",
-                  onTap: () {
-                    Clipboard.setData(
-                      ClipboardData(text: "haidar@example.com"),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text("Email Berhasil di copy"),
-                        duration: Duration(seconds: 2),
-                        behavior: SnackBarBehavior.floating,
-                      ),
-                    );
-                  },
-                ),
-                SizedBox(height: 20),
-
-                // Location Section
-                _ContactInfoItem(
-                  icon: Icons.music_note,
-                  title: "Favorite Music",
-                  content: "Abadi - Perunggu",
-                ),
-                SizedBox(height: 32),
-
-                Text(
-                  "Connect with me",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+            Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Email Section
+                  _ContactInfoItem(
+                    icon: Icons.email_rounded,
+                    title: "Email",
+                    content: "ahlangaffar@gmail.com",
+                    onTap: () {
+                      Clipboard.setData(
+                        ClipboardData(text: "haidar@example.com"),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Email Berhasil di copy"),
+                          duration: Duration(seconds: 2),
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    },
                   ),
-                ),
-                SizedBox(height: 16),
+                  SizedBox(height: 20),
 
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    _SocialMediaButton(
-                      icon: Icons.code,
-                      label: "GitHub",
-                      onTap: () {},
+                  // Location Section
+                  _ContactInfoItem(
+                    icon: Icons.music_note,
+                    title: "Favorite Music",
+                    content: "Abadi - Perunggu",
+                  ),
+                  SizedBox(height: 32),
+
+                  Text(
+                    "Connect with me",
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ),
-                    _SocialMediaButton(
-                      icon: Icons.linked_camera,
-                      label: "LinkedIn",
-                      onTap: () {},
-                    ),
-                    _SocialMediaButton(
-                      icon: Icons.inbox,
-                      label: "Instagram",
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(height: 16),
+
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: [
+                      _SocialMediaButton(
+                        icon: Icons.code,
+                        label: "GitHub",
+                        onTap: () {},
+                      ),
+                      _SocialMediaButton(
+                        icon: Icons.linked_camera,
+                        label: "LinkedIn",
+                        onTap: () {},
+                      ),
+                      _SocialMediaButton(
+                        icon: Icons.inbox,
+                        label: "Instagram",
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
