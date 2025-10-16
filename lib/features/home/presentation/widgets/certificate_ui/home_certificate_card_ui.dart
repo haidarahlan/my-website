@@ -88,12 +88,20 @@ class HomeCertificateCardUi extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 84, vertical: 16),
             decoration: BoxDecoration(
               color: AppColors.textBlack.withValues(alpha: 0.3),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(24),
+                topRight: Radius.circular(24),
+              ),
             ),
             child: Text(
-              "Certification",
+              "Certificates",
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
-              style: TextStyle(color: Colors.white, fontSize: 30),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           LayoutBuilder(
