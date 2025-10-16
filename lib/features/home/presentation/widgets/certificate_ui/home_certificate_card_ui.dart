@@ -71,6 +71,7 @@ class HomeCertificateCardUi extends StatelessWidget {
     ];
 
     return Container(
+      height: 500,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),

@@ -27,6 +27,18 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/app_driver.png
+  AssetGenImage get appDriver =>
+      const AssetGenImage('assets/images/app_driver.png');
+
+  /// File path: assets/images/app_smartmind.png
+  AssetGenImage get appSmartmind =>
+      const AssetGenImage('assets/images/app_smartmind.png');
+
+  /// File path: assets/images/app_stevor.png
+  AssetGenImage get appStevor =>
+      const AssetGenImage('assets/images/app_stevor.png');
+
   /// File path: assets/images/avatar_skill.png
   AssetGenImage get avatarSkill =>
       const AssetGenImage('assets/images/avatar_skill.png');
@@ -73,6 +85,9 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        appDriver,
+        appSmartmind,
+        appStevor,
         avatarSkill,
         certification1,
         certification2,

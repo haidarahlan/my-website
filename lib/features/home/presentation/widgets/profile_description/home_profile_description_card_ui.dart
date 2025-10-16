@@ -5,9 +5,17 @@ import 'package:haidar_website/features/home/presentation/widgets/profile_descri
 import 'package:haidar_website/gen/assets.gen.dart';
 import 'package:haidar_website/theme/colors.dart';
 import 'package:haidar_website/theme/text_style.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeProfileDescriptionCardUi extends StatelessWidget {
   const HomeProfileDescriptionCardUi({super.key});
+
+  Future<void> _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $urlString');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,13 +70,15 @@ class HomeProfileDescriptionCardUi extends StatelessWidget {
                     ),
                   ),
                   ProfileCardSosmedUi(
-                    onTap: () {},
+                    onTap: () => _launchURL(
+                        'https://www.linkedin.com/in/haidar-ahlan-ghaffar/'),
                     iconSosmed: Assets.icons.logo.linkedinnew
                         .svg(width: 24, height: 24, fit: BoxFit.cover),
                   ),
                   SizedBox(width: 7),
                   ProfileCardSosmedUi(
-                    onTap: () {},
+                    onTap: () => _launchURL(
+                        'https://github.com/haidarahlan?tab=overview&from=2025-10-01&to=2025-10-16'),
                     iconSosmed: Assets.icons.logo.github
                         .svg(width: 24, height: 24, fit: BoxFit.cover),
                   ),

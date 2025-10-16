@@ -2,14 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:haidar_website/features/home/presentation/widgets/project_ui/project_card_ui.dart';
 import 'package:haidar_website/gen/assets.gen.dart';
 import 'package:haidar_website/theme/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeProjectCardUi extends StatelessWidget {
-  const HomeProjectCardUi({super.key});
+  final bool isMobile;
+
+  const HomeProjectCardUi({
+    super.key,
+    this.isMobile = false,
+  });
+
+  // method membuka URL
+  Future<void> _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $urlString');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: isMobile ? null : 450,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: const LinearGradient(
@@ -51,52 +66,43 @@ class HomeProjectCardUi extends StatelessWidget {
                 runSpacing: 20,
                 children: [
                   ProjectCardUi(
-                    title: "Noglab App",
-                    image: ClipRRect(
-                      borderRadius: BorderRadius.circular(2),
-                      child: Assets.images.certification2.image(
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                  ProjectCardUi(
                     title: "Smart Mind Center App",
                     image: ClipRRect(
                       borderRadius: BorderRadius.circular(2),
-                      child: Assets.images.certification2.image(
+                      child: Assets.images.appSmartmind.image(
                         width: 30,
                         height: 30,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () => _launchURL(
+                        'https://play.google.com/store/apps/details?id=com.saga.smartmind&hl=id'),
                   ),
                   ProjectCardUi(
                     title: "Stevor Express",
                     image: ClipRRect(
                       borderRadius: BorderRadius.circular(2),
-                      child: Assets.images.certification2.image(
+                      child: Assets.images.appStevor.image(
                         width: 30,
                         height: 30,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () => _launchURL(
+                        'https://play.google.com/store/apps/details?id=com.stevor.express&hl=id'),
                   ),
                   ProjectCardUi(
-                    title: "Website WarminUp",
+                    title: "Stevor Driver",
                     image: ClipRRect(
                       borderRadius: BorderRadius.circular(2),
-                      child: Assets.images.certification2.image(
+                      child: Assets.images.appDriver.image(
                         width: 30,
                         height: 30,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () => _launchURL(
+                        'https://play.google.com/store/apps/details?id=com.stevor.driver&hl=id'),
                   ),
                 ],
               ),

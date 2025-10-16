@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:haidar_website/theme/colors.dart';
 
-class HomeMusicFavCard extends StatelessWidget {
-  const HomeMusicFavCard({super.key});
+class HomeContactCardUi extends StatelessWidget {
+  const HomeContactCardUi({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 500,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: LinearGradient(

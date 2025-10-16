@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(height: 20),
         HomeCertificateCardUi(),
         const SizedBox(height: 20),
-        HomeMusicFavCard(),
+        HomeContactCardUi(),
       ],
     );
   }
@@ -192,7 +192,7 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(height: 20),
         HomeCertificateCardUi(),
         const SizedBox(height: 20),
-        HomeMusicFavCard(),
+        HomeContactCardUi(),
       ],
     );
   }
@@ -230,7 +230,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(flex: 2, child: HomeCertificateCardUi()),
             const SizedBox(width: 44),
-            Expanded(flex: 1, child: HomeMusicFavCard()),
+            Expanded(flex: 1, child: HomeContactCardUi()),
           ],
         ),
       ],

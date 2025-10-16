@@ -51,6 +51,7 @@ class HomeExperienceCardUi extends StatelessWidget {
     ];
 
     return Container(
+      height: isMobile ? null : 450,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: const LinearGradient(
