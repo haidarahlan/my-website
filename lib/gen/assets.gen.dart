@@ -108,12 +108,19 @@ class $AssetsIconsLogoGen {
   /// File path: assets/icons/logo/github.svg
   SvgGenImage get github => const SvgGenImage('assets/icons/logo/github.svg');
 
+  /// File path: assets/icons/logo/instagram.svg
+  SvgGenImage get instagram =>
+      const SvgGenImage('assets/icons/logo/instagram.svg');
+
   /// File path: assets/icons/logo/linkedinnew.svg
   SvgGenImage get linkedinnew =>
       const SvgGenImage('assets/icons/logo/linkedinnew.svg');
 
+  /// File path: assets/icons/logo/spotify.svg
+  SvgGenImage get spotify => const SvgGenImage('assets/icons/logo/spotify.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [github, linkedinnew];
+  List<SvgGenImage> get values => [github, instagram, linkedinnew, spotify];
 }
 
 class Assets {

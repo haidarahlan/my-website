@@ -46,9 +46,7 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
                   spacing: 8,
                   runSpacing: 8,
                   children: [
-                    Chip(elevation: 3, label: Text("Flutter")),
-                    Chip(elevation: 3, label: Text("Dart")),
-                    Chip(elevation: 3, label: Text("Firebase")),
+                    Chip(elevation: 3, label: Text("Frontend Development")),
                     Chip(elevation: 3, label: Text("Git")),
                     Chip(elevation: 3, label: Text("REST API")),
                     Chip(elevation: 3, label: Text("UI/UX Design")),

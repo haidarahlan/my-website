@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:haidar_website/gen/assets.gen.dart';
 import 'package:haidar_website/theme/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeContactCardUi extends StatelessWidget {
   final bool isMobile;
   const HomeContactCardUi({super.key, this.isMobile = false});
+
+  Future<void> _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $urlString');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +65,10 @@ class HomeContactCardUi extends StatelessWidget {
                     icon: Icons.email_rounded,
                     title: "Email",
                     content: "ahlangaffar@gmail.com",
-                    onTap: () {
+                    isEmail: true,
+                    onEmailTap: () {
                       Clipboard.setData(
-                        ClipboardData(text: "haidar@example.com"),
+                        ClipboardData(text: "ahlangaffar@gmail.com"),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -68,6 +78,7 @@ class HomeContactCardUi extends StatelessWidget {
                         ),
                       );
                     },
+                    onTap: () => _launchURL('mailto:ahlangaffar@gmail.com'),
                   ),
                   SizedBox(height: 20),
 
@@ -92,21 +103,26 @@ class HomeContactCardUi extends StatelessWidget {
                   Wrap(
                     spacing: 10,
                     runSpacing: 10,
+                    alignment: WrapAlignment.start,
                     children: [
                       _SocialMediaButton(
-                        icon: Icons.code,
+                        iconWidget: Assets.icons.logo.github.svg(width: 24),
                         label: "GitHub",
-                        onTap: () {},
+                        onTap: () => _launchURL(
+                            'https://github.com/haidarahlan?tab=overview&from=2025-10-01&to=2025-10-16'),
                       ),
                       _SocialMediaButton(
-                        icon: Icons.linked_camera,
+                        iconWidget:
+                            Assets.icons.logo.linkedinnew.svg(width: 24),
                         label: "LinkedIn",
-                        onTap: () {},
+                        onTap: () => _launchURL(
+                            'https://www.linkedin.com/in/haidar-ahlan-ghaffar/'),
                       ),
                       _SocialMediaButton(
-                        icon: Icons.inbox,
+                        iconWidget: Assets.icons.logo.instagram.svg(width: 24),
                         label: "Instagram",
-                        onTap: () {},
+                        onTap: () => _launchURL(
+                            'https://www.instagram.com/haidarahlanz/'),
                       ),
                     ],
                   ),
@@ -124,13 +140,17 @@ class _ContactInfoItem extends StatelessWidget {
   final IconData icon;
   final String title;
   final String content;
+  final bool isEmail;
   final VoidCallback? onTap;
+  final VoidCallback? onEmailTap;
 
   const _ContactInfoItem({
     required this.icon,
     required this.title,
     required this.content,
     this.onTap,
+    this.onEmailTap,
+    this.isEmail = false,
   });
 
   @override
@@ -194,11 +214,14 @@ class _ContactInfoItem extends StatelessWidget {
                 ],
               ),
             ),
-            if (onTap != null)
-              Icon(
-                Icons.content_copy_rounded,
-                color: Colors.white54,
-                size: 20,
+            if (isEmail)
+              InkWell(
+                onTap: onEmailTap,
+                child: Icon(
+                  Icons.content_copy_rounded,
+                  color: Colors.white54,
+                  size: 20,
+                ),
               ),
           ],
         ),
@@ -208,12 +231,12 @@ class _ContactInfoItem extends StatelessWidget {
 }
 
 class _SocialMediaButton extends StatefulWidget {
-  final IconData icon;
+  final Widget iconWidget;
   final String label;
   final VoidCallback onTap;
 
   const _SocialMediaButton({
-    required this.icon,
+    required this.iconWidget,
     required this.label,
     required this.onTap,
   });
@@ -234,7 +257,7 @@ class _SocialMediaButtonState extends State<_SocialMediaButton> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: Duration(milliseconds: 200),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
           decoration: BoxDecoration(
             gradient: isHovered
                 ? LinearGradient(
@@ -253,11 +276,7 @@ class _SocialMediaButtonState extends State<_SocialMediaButton> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                widget.icon,
-                color: Colors.white,
-                size: 20,
-              ),
+              widget.iconWidget,
               SizedBox(width: 8),
               Text(
                 widget.label,

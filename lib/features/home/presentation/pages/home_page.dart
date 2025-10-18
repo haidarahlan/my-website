@@ -55,7 +55,6 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  // Toggle dark mode function
   void _toggleDarkMode() {
     setState(() {
       _isDarkMode = !_isDarkMode;
@@ -98,6 +97,7 @@ class _HomePageState extends State<HomePage> {
                   child: HomeAppBar(
                     onMenuPressed: _toggleDarkMode,
                     isDarkMode: _isDarkMode,
+                    onAvatarPressed: () {},
                   ),
                 ),
               ),
