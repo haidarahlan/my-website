@@ -21,6 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _isLoading = true;
   bool _isConnected = false;
+  bool _isDarkMode = true;
 
   final Connectivity _connectivity = Connectivity();
 
@@ -54,10 +55,17 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  // Toggle dark mode function
+  void _toggleDarkMode() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff161513),
+      backgroundColor: _isDarkMode ? const Color(0xff161513) : Colors.white,
       body: SafeArea(
         child: _isLoading
             ? AppLoading(
@@ -79,45 +87,54 @@ class _HomePageState extends State<HomePage> {
           constraints.maxWidth >= 768 && constraints.maxWidth < 1200;
       bool isDesktop = constraints.maxWidth >= 1200;
 
-      return CustomScrollView(
-        slivers: [
-          // Fixed AppBar menggunakan SliverPersistentHeader
-          SliverPersistentHeader(
-            pinned: true,
-            delegate: _AppBarDelegate(
-              child: HomeAppBar(),
-            ),
-          ),
-
-          // Main content
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                // Main Content - Centered
-                Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.only(
-                    top: isMobile ? 80 : 141,
-                  ),
-                  child: Center(
-                    child: Container(
-                      width: double.infinity,
-                      constraints: BoxConstraints(
-                        maxWidth: _getMaxWidth(isMobile, isTablet, isDesktop),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: _getHorizontalPadding(isMobile, isTablet),
-                      ),
-                      child: _buildResponsiveLayout(isMobile, isTablet),
-                    ),
+      return Stack(
+        children: [
+          CustomScrollView(
+            slivers: [
+              // Fixed AppBar menggunakan SliverPersistentHeader
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: _AppBarDelegate(
+                  child: HomeAppBar(
+                    onMenuPressed: _toggleDarkMode,
+                    isDarkMode: _isDarkMode,
                   ),
                 ),
+              ),
 
-                // Bottom spacing
-                SizedBox(height: isMobile ? 40 : 80),
-              ],
-            ),
+              // Main content
+              SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    // Main Content - Centered
+                    Container(
+                      width: double.infinity,
+                      margin: EdgeInsets.only(
+                        top: isMobile ? 80 : 141,
+                      ),
+                      child: Center(
+                        child: Container(
+                          width: double.infinity,
+                          constraints: BoxConstraints(
+                            maxWidth:
+                                _getMaxWidth(isMobile, isTablet, isDesktop),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                _getHorizontalPadding(isMobile, isTablet),
+                          ),
+                          child: _buildResponsiveLayout(isMobile, isTablet),
+                        ),
+                      ),
+                    ),
+
+                    // Bottom spacing
+                    SizedBox(height: isMobile ? 40 : 80),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       );

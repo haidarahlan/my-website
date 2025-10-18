@@ -6,11 +6,13 @@ import 'package:haidar_website/theme/colors.dart';
 class HomeAppBar extends StatelessWidget {
   final VoidCallback? onMenuPressed;
   final VoidCallback? onAvatarPressed;
+  final bool isDarkMode;
 
   const HomeAppBar({
     super.key,
     this.onMenuPressed,
     this.onAvatarPressed,
+    this.isDarkMode = false,
   });
 
   @override
@@ -34,9 +36,13 @@ class HomeAppBar extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.1),
+                  color: isDarkMode
+                      ? Colors.white.withValues(alpha: 0.1)
+                      : Colors.black.withValues(alpha: 0.1),
                   border: Border.all(
-                    color: Colors.white.withValues(alpha: 0.2),
+                    color: isDarkMode
+                        ? Colors.white.withValues(alpha: 0.2)
+                        : Colors.black.withValues(alpha: 0.2),
                     width: 1.5,
                   ),
                   borderRadius: BorderRadius.only(
@@ -49,8 +55,10 @@ class HomeAppBar extends StatelessWidget {
                     Expanded(
                       child: InkWell(
                         onTap: onMenuPressed,
-                        child: Assets.icons.menuBurger.svg(
-                          width: 44,
+                        child: Icon(
+                          isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                          color: isDarkMode ? Colors.white : Colors.black,
+                          size: 44,
                         ),
                       ),
                     ),
