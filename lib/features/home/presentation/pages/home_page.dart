@@ -169,15 +169,15 @@ class _HomePageState extends State<HomePage> {
       children: [
         HomeProfileDescriptionCardUi(),
         const SizedBox(height: 20),
-        HomeAvatarSkillCardUi(isMobile: true),
+        HomeAvatarSkillCardUi(),
         const SizedBox(height: 20),
-        HomeProjectCardUi(isMobile: true),
+        HomeProjectCardUi(),
         const SizedBox(height: 20),
-        HomeExperienceCardUi(isMobile: true),
+        HomeExperienceCardUi(),
         const SizedBox(height: 20),
-        HomeCertificateCardUi(isMobile: true),
+        HomeCertificateCardUi(),
         const SizedBox(height: 20),
-        HomeContactCardUi(isMobile: true),
+        HomeContactCardUi(),
       ],
     );
   }
@@ -196,24 +196,18 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(width: 24),
             Expanded(
               flex: 1,
-              child: HomeAvatarSkillCardUi(
-                isMobile: true,
-              ),
+              child: HomeAvatarSkillCardUi(),
             ),
           ],
         ),
         const SizedBox(height: 24),
-        HomeProjectCardUi(
-          isMobile: true,
-        ),
+        HomeProjectCardUi(),
         const SizedBox(height: 20),
-        HomeExperienceCardUi(
-          isMobile: true,
-        ),
+        HomeExperienceCardUi(),
         const SizedBox(height: 20),
-        HomeCertificateCardUi(isMobile: true),
+        HomeCertificateCardUi(),
         const SizedBox(height: 20),
-        HomeContactCardUi(isMobile: true),
+        HomeContactCardUi(),
       ],
     );
   }

@@ -4,142 +4,157 @@ import 'package:flutter/material.dart';
 import 'package:haidar_website/gen/assets.gen.dart';
 
 class HomeAvatarSkillCardUi extends StatelessWidget {
-  final bool? isMobile;
   const HomeAvatarSkillCardUi({
     super.key,
-    this.isMobile,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 434,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
-        gradient: const LinearGradient(
-          colors: [Color(0xFFFF6C6C), Color(0xFF894EFF)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Stack(
-        children: [
-          // Avatar di bagian bawah
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Assets.images.avatarSkill.image(
-              width: 161,
-              height: 234,
-              fit: BoxFit.contain,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        bool isMobile = MediaQuery.of(context).size.width < 768;
+
+        return Container(
+          height: isMobile ? 380 : 434,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(32),
+            gradient: const LinearGradient(
+              colors: [Color(0xFFFF6C6C), Color(0xFF894EFF)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
           ),
+          child: Stack(
+            children: [
+              // Avatar di bagian bawah
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Assets.images.avatarSkill.image(
+                  width: isMobile ? 120 : 161,
+                  height: isMobile ? 180 : 234,
+                  fit: BoxFit.contain,
+                ),
+              ),
 
-          // Title "Skills" di atas
-          Positioned(
-            top: 24,
-            left: 24,
-            right: 16,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
+              // Title "Skills" di atas
+              Positioned(
+                top: isMobile ? 16 : 24,
+                left: isMobile ? 16 : 24,
+                right: 16,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildGlassTag("Frontend Development"),
-                    _buildGlassTag("Git"),
-                    _buildGlassTag("REST API"),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        _buildGlassTag("Frontend Development", isMobile),
+                        _buildGlassTag("Git", isMobile),
+                        _buildGlassTag("REST API", isMobile),
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            ),
-          ),
-
-          // Flutter Logo - kiri atas
-          Positioned(
-            left: isMobile == true ? 100 : 20,
-            bottom: 20,
-            child: _buildSkillIcon(child: FlutterLogo(size: 30)),
-          ),
-
-          // Dart Logo - kanan atas
-          Positioned(
-            left: isMobile == true ? 100 : 20,
-            bottom: 80,
-            child: _buildSkillIcon(
-              child: Assets.icons.logo.dart.svg(
-                width: 30,
-                height: 30,
-                fit: BoxFit.cover,
               ),
-            ),
-          ),
 
-          // Firebase Logo - kanan tengah
-          Positioned(
-            left: isMobile == true ? 100 : 20,
-            bottom: 140,
-            child: _buildSkillIcon(
-              child: Assets.icons.logo.firebase.svg(
-                width: 30,
-                height: 30,
-                fit: BoxFit.cover,
+              // Flutter Logo - kiri bawah
+              Positioned(
+                left: isMobile ? 50 : 20,
+                bottom: isMobile ? 16 : 20,
+                child: _buildSkillIcon(
+                  child: FlutterLogo(size: isMobile ? 24 : 30),
+                  isMobile: isMobile,
+                ),
               ),
-            ),
-          ),
 
-          // Git Logo - kiri tengah
-          Positioned(
-            right: isMobile == true ? 100 : 20,
-            bottom: 140,
-            child: _buildSkillIcon(
-              child: Assets.icons.logo.laravel.svg(
-                width: 30,
-                height: 30,
-                fit: BoxFit.cover,
+              // Dart Logo - kiri tengah bawah
+              Positioned(
+                left: isMobile ? 50 : 20,
+                bottom: isMobile ? 72 : 80,
+                child: _buildSkillIcon(
+                  child: Assets.icons.logo.dart.svg(
+                    width: isMobile ? 24 : 30,
+                    height: isMobile ? 24 : 30,
+                    fit: BoxFit.cover,
+                  ),
+                  isMobile: isMobile,
+                ),
               ),
-            ),
-          ),
 
-          // API Logo - kanan bawah
-          Positioned(
-            right: isMobile == true ? 100 : 20,
-            bottom: 80,
-            child: _buildSkillIcon(
-              child: Assets.icons.logo.php.svg(
-                width: 30,
-                height: 30,
-                fit: BoxFit.cover,
+              // Firebase Logo - kiri tengah atas
+              Positioned(
+                left: isMobile ? 50 : 20,
+                bottom: isMobile ? 128 : 140,
+                child: _buildSkillIcon(
+                  child: Assets.icons.logo.firebase.svg(
+                    width: isMobile ? 24 : 30,
+                    height: isMobile ? 24 : 30,
+                    fit: BoxFit.cover,
+                  ),
+                  isMobile: isMobile,
+                ),
               ),
-            ),
-          ),
 
-          // Testing Logo - kiri bawah
-          Positioned(
-            right: isMobile == true ? 100 : 20,
-            bottom: 20,
-            child: _buildSkillIcon(
-              child: Assets.icons.logo.javascript.svg(
-                width: 30,
-                height: 30,
-                fit: BoxFit.cover,
+              // Laravel Logo - kanan tengah atas
+              Positioned(
+                right: isMobile ? 50 : 20,
+                bottom: isMobile ? 128 : 140,
+                child: _buildSkillIcon(
+                  child: Assets.icons.logo.laravel.svg(
+                    width: isMobile ? 24 : 30,
+                    height: isMobile ? 24 : 30,
+                    fit: BoxFit.cover,
+                  ),
+                  isMobile: isMobile,
+                ),
               ),
-            ),
+
+              // PHP Logo - kanan tengah bawah
+              Positioned(
+                right: isMobile ? 50 : 20,
+                bottom: isMobile ? 72 : 80,
+                child: _buildSkillIcon(
+                  child: Assets.icons.logo.php.svg(
+                    width: isMobile ? 24 : 30,
+                    height: isMobile ? 24 : 30,
+                    fit: BoxFit.cover,
+                  ),
+                  isMobile: isMobile,
+                ),
+              ),
+
+              // JavaScript Logo - kanan bawah
+              Positioned(
+                right: isMobile ? 50 : 20,
+                bottom: isMobile ? 16 : 20,
+                child: _buildSkillIcon(
+                  child: Assets.icons.logo.javascript.svg(
+                    width: isMobile ? 24 : 30,
+                    height: isMobile ? 24 : 30,
+                    fit: BoxFit.cover,
+                  ),
+                  isMobile: isMobile,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildGlassTag(String text) {
+  Widget _buildGlassTag(String text, bool isMobile) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(
+            horizontal: isMobile ? 12 : 16,
+            vertical: isMobile ? 6 : 8,
+          ),
           decoration: BoxDecoration(
             color: Colors.white.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(12),
@@ -150,9 +165,9 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
           ),
           child: Text(
             text,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: isMobile ? 12 : 14,
               fontWeight: FontWeight.w500,
               letterSpacing: 0.3,
             ),
@@ -162,13 +177,13 @@ class HomeAvatarSkillCardUi extends StatelessWidget {
     );
   }
 
-  Widget _buildSkillIcon({required Widget child}) {
+  Widget _buildSkillIcon({required Widget child, required bool isMobile}) {
     return Container(
-      width: 56,
-      height: 56,
+      width: isMobile ? 48 : 56,
+      height: isMobile ? 48 : 56,
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.9),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(isMobile ? 12 : 16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.1),
