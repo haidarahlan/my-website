@@ -57,7 +57,7 @@ class HomeProfileDescriptionCardUi extends StatelessWidget {
                             height: 1.2,
                           ),
                         ),
-                        Text('Mobile Developer',
+                        Text('Mobile Developer & Security Enthusiast',
                             softWrap: true,
                             maxLines: 1,
                             style: primaryTextStyle.copyWith(
@@ -98,7 +98,7 @@ class HomeProfileDescriptionCardUi extends StatelessWidget {
               ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: isMobile ? 456 : 565),
                 child: Text(
-                  'I am a seasoned Mobile Developer with over 2 years of professional experience, specializing in front-end developmnet. My expertise lies in crafting mobile UI and scalable state management blocand firebase for backend as a service.',
+                  "I'm a Mobile Developer with 2 years of experience creating Flutter apps. I specialize in frontend development and Bloc state management, building scalable solutions with attention to both user experience and code quality.",
                   style: primaryTextStyle.copyWith(
                     color: AppColors.grey3,
                     fontSize: isMobile ? 14 : 16,

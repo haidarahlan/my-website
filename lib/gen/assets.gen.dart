@@ -105,6 +105,13 @@ class $AssetsImagesGen {
 class $AssetsIconsLogoGen {
   const $AssetsIconsLogoGen();
 
+  /// File path: assets/icons/logo/dart.svg
+  SvgGenImage get dart => const SvgGenImage('assets/icons/logo/dart.svg');
+
+  /// File path: assets/icons/logo/firebase.svg
+  SvgGenImage get firebase =>
+      const SvgGenImage('assets/icons/logo/firebase.svg');
+
   /// File path: assets/icons/logo/github.svg
   SvgGenImage get github => const SvgGenImage('assets/icons/logo/github.svg');
 
@@ -112,15 +119,35 @@ class $AssetsIconsLogoGen {
   SvgGenImage get instagram =>
       const SvgGenImage('assets/icons/logo/instagram.svg');
 
+  /// File path: assets/icons/logo/javascript.svg
+  SvgGenImage get javascript =>
+      const SvgGenImage('assets/icons/logo/javascript.svg');
+
+  /// File path: assets/icons/logo/laravel.svg
+  SvgGenImage get laravel => const SvgGenImage('assets/icons/logo/laravel.svg');
+
   /// File path: assets/icons/logo/linkedinnew.svg
   SvgGenImage get linkedinnew =>
       const SvgGenImage('assets/icons/logo/linkedinnew.svg');
+
+  /// File path: assets/icons/logo/php.svg
+  SvgGenImage get php => const SvgGenImage('assets/icons/logo/php.svg');
 
   /// File path: assets/icons/logo/spotify.svg
   SvgGenImage get spotify => const SvgGenImage('assets/icons/logo/spotify.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [github, instagram, linkedinnew, spotify];
+  List<SvgGenImage> get values => [
+        dart,
+        firebase,
+        github,
+        instagram,
+        javascript,
+        laravel,
+        linkedinnew,
+        php,
+        spotify
+      ];
 }
 
 class Assets {
