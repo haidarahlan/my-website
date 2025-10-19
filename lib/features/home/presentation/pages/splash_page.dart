@@ -111,136 +111,160 @@ class _SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff161513),
-      body: SafeArea(
-        child: Center(
-          child: FadeTransition(
-            opacity: _fadeAnimation,
-            child: SlideTransition(
-              position: _slideAnimation,
-              child: ScaleTransition(
-                scale: _scaleAnimation,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Animated dot sebelum text
-                    AnimatedBuilder(
-                      animation: _controller,
-                      builder: (context, child) {
-                        return Assets.images.avatarSkill.image(
-                          width: 100,
-                          height: 100,
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 40),
-                    // Main text "Haidar"
-                    ShaderMask(
-                      shaderCallback: (bounds) {
-                        return LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Colors.amber[300]!,
-                            Colors.amber[600]!,
-                          ],
-                        ).createShader(bounds);
-                      },
-                      child: Text(
-                        'Haidar Website',
-                        style:
-                            Theme.of(context).textTheme.displayLarge?.copyWith(
-                                  fontSize: 56,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 3.0,
-                                  color: Colors.white,
-                                ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    // Subtitle dengan animasi
-                    AnimatedBuilder(
-                      animation: _fadeAnimation,
-                      builder: (context, child) {
-                        return Opacity(
-                          opacity: _fadeAnimation.value > 0.5
-                              ? (_fadeAnimation.value - 0.5) * 2
-                              : 0,
-                          child: Text(
-                            'Connecting...',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              letterSpacing: 2.0,
-                              color: Colors.white.withValues(alpha: 0.7),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        bool isMobile = MediaQuery.of(context).size.width < 768;
+        double screenWidth = MediaQuery.of(context).size.width;
+
+        return Scaffold(
+          backgroundColor: const Color(0xff161513),
+          body: SafeArea(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: isMobile ? 24 : 48,
+                ),
+                child: FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: SlideTransition(
+                    position: _slideAnimation,
+                    child: ScaleTransition(
+                      scale: _scaleAnimation,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Animated avatar image
+                          AnimatedBuilder(
+                            animation: _controller,
+                            builder: (context, child) {
+                              return Assets.images.avatarSkill.image(
+                                width: isMobile ? 80 : 100,
+                                height: isMobile ? 80 : 100,
+                              );
+                            },
+                          ),
+                          SizedBox(height: isMobile ? 30 : 40),
+
+                          // Main text "Haidar Website"
+                          ShaderMask(
+                            shaderCallback: (bounds) {
+                              return LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Colors.amber[300]!,
+                                  Colors.amber[600]!,
+                                ],
+                              ).createShader(bounds);
+                            },
+                            child: Text(
+                              'Haidar Website',
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayLarge
+                                  ?.copyWith(
+                                    fontSize:
+                                        isMobile ? screenWidth * 0.08 : 56,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: isMobile ? 1.5 : 3.0,
+                                    color: Colors.white,
+                                  ),
                             ),
                           ),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 40),
-                    // Loading indicator
-                    AnimatedBuilder(
-                      animation: _controller,
-                      builder: (context, child) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(3, (index) {
-                            final delay = index * 0.15;
-                            final animValue =
-                                (_controller.value - delay).clamp(0.0, 1.0);
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4.0),
-                              child: Transform.translate(
-                                offset: Offset(
-                                    0,
-                                    -8 *
-                                        (animValue > 0.5
-                                            ? 1 - animValue
-                                            : animValue) *
-                                        2),
-                                child: Container(
-                                  width: 6,
-                                  height: 6,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.amber.withValues(
-                                        alpha: 0.5 + animValue * 0.5),
+                          SizedBox(height: isMobile ? 16 : 20),
+
+                          // Subtitle dengan animasi
+                          AnimatedBuilder(
+                            animation: _fadeAnimation,
+                            builder: (context, child) {
+                              return Opacity(
+                                opacity: _fadeAnimation.value > 0.5
+                                    ? (_fadeAnimation.value - 0.5) * 2
+                                    : 0,
+                                child: Text(
+                                  'Connecting...',
+                                  style: TextStyle(
+                                    fontSize: isMobile ? 12 : 14,
+                                    fontWeight: FontWeight.w300,
+                                    letterSpacing: isMobile ? 1.5 : 2.0,
+                                    color: Colors.white.withValues(alpha: 0.7),
                                   ),
                                 ),
-                              ),
-                            );
-                          }),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 60),
-                    // Status connection
-                    AnimatedBuilder(
-                      animation: _controller,
-                      builder: (context, child) {
-                        return Text(
-                          _isConnected ? 'Ready!' : 'Waiting for connection...',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 1.0,
-                            color: _isConnected
-                                ? Colors.greenAccent
-                                : Colors.white.withValues(alpha: 0.5),
+                              );
+                            },
                           ),
-                        );
-                      },
+                          SizedBox(height: isMobile ? 30 : 40),
+
+                          // Loading indicator
+                          AnimatedBuilder(
+                            animation: _controller,
+                            builder: (context, child) {
+                              return Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: List.generate(3, (index) {
+                                  final delay = index * 0.15;
+                                  final animValue = (_controller.value - delay)
+                                      .clamp(0.0, 1.0);
+                                  return Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: isMobile ? 3.0 : 4.0,
+                                    ),
+                                    child: Transform.translate(
+                                      offset: Offset(
+                                          0,
+                                          -(isMobile ? 6 : 8) *
+                                              (animValue > 0.5
+                                                  ? 1 - animValue
+                                                  : animValue) *
+                                              2),
+                                      child: Container(
+                                        width: isMobile ? 5 : 6,
+                                        height: isMobile ? 5 : 6,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.amber.withValues(
+                                              alpha: 0.5 + animValue * 0.5),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }),
+                              );
+                            },
+                          ),
+                          SizedBox(height: isMobile ? 40 : 60),
+
+                          // Status connection
+                          AnimatedBuilder(
+                            animation: _controller,
+                            builder: (context, child) {
+                              return Text(
+                                _isConnected
+                                    ? 'Ready!'
+                                    : 'Waiting for connection...',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: isMobile ? 11 : 12,
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: isMobile ? 0.8 : 1.0,
+                                  color: _isConnected
+                                      ? Colors.greenAccent
+                                      : Colors.white.withValues(alpha: 0.5),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
