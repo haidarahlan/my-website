@@ -19,7 +19,7 @@ class HomeExperienceCardUi extends StatelessWidget {
           ExperienceModel(
               company: "Flutter Developer at Stevor Express",
               position: "contract",
-              period: "Jan 2025 - Present",
+              period: "Jan 2025 - Oct 2025",
               description:
                   "Handled iOS deployment process including building, signing, and uploading the app to AppStore Connect, ensuring proper compliance and publication standards.",
               companyLogo: Assets.images.logoStevor.image(

@@ -18,10 +18,10 @@ class HomeCertificateCardUi extends StatelessWidget {
             maxHeight:
                 isMobile ? MediaQuery.of(context).size.height * 0.7 : 600,
           ),
-          child: Stack(
-            children: [
-              Center(
-                child: ClipRRect(
+          child: Center(
+            child: Stack(
+              children: [
+                ClipRRect(
                   borderRadius: BorderRadius.circular(isMobile ? 8 : 12),
                   child: Container(
                     decoration: BoxDecoration(
@@ -42,26 +42,26 @@ class HomeCertificateCardUi extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: isMobile ? 210 : 10,
-                right: isMobile ? 5 : 10,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black54,
-                    shape: BoxShape.circle,
-                  ),
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.close,
-                      color: Colors.white,
-                      size: isMobile ? 20 : 24,
+                Positioned(
+                  top: isMobile ? 5 : 10,
+                  right: isMobile ? 5 : 10,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      shape: BoxShape.circle,
                     ),
-                    onPressed: () => Navigator.pop(context),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: isMobile ? 20 : 24,
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
