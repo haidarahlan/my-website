@@ -78,7 +78,7 @@ class HomeCertificateCardUi extends StatelessWidget {
           Assets.icons.certification2,
           Assets.icons.certification3,
           Assets.icons.certification4,
-          // Assets.icons.certification5,
+          Assets.icons.certification5,
         ];
 
         return Container(

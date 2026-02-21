@@ -73,7 +73,7 @@ class HomeProjectCardUi extends StatelessWidget {
                         title: "Smart Mind Center App",
                         image: ClipRRect(
                           borderRadius: BorderRadius.circular(2),
-                          child: Assets.images.appSmartmind.image(
+                          child: Assets.icons.appSmartmind.svg(
                             width: 30,
                             height: 30,
                             fit: BoxFit.cover,
@@ -86,7 +86,7 @@ class HomeProjectCardUi extends StatelessWidget {
                         title: "Stevor Express",
                         image: ClipRRect(
                           borderRadius: BorderRadius.circular(2),
-                          child: Assets.images.appStevor.image(
+                          child: Assets.icons.appStevor.svg(
                             width: 30,
                             height: 30,
                             fit: BoxFit.cover,
@@ -99,7 +99,7 @@ class HomeProjectCardUi extends StatelessWidget {
                         title: "Stevor Driver",
                         image: ClipRRect(
                           borderRadius: BorderRadius.circular(2),
-                          child: Assets.images.appDriver.image(
+                          child: Assets.icons.appDriver.svg(
                             width: 30,
                             height: 30,
                             fit: BoxFit.cover,

@@ -14,6 +14,16 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/app_driver.svg
+  SvgGenImage get appDriver => const SvgGenImage('assets/icons/app_driver.svg');
+
+  /// File path: assets/icons/app_smartmind.svg
+  SvgGenImage get appSmartmind =>
+      const SvgGenImage('assets/icons/app_smartmind.svg');
+
+  /// File path: assets/icons/app_stevor.svg
+  SvgGenImage get appStevor => const SvgGenImage('assets/icons/app_stevor.svg');
+
   /// File path: assets/icons/certification_1.svg
   SvgGenImage get certification1 =>
       const SvgGenImage('assets/icons/certification_1.svg');
@@ -30,6 +40,10 @@ class $AssetsIconsGen {
   SvgGenImage get certification4 =>
       const SvgGenImage('assets/icons/certification_4.svg');
 
+  /// File path: assets/icons/certification_5.svg
+  SvgGenImage get certification5 =>
+      const SvgGenImage('assets/icons/certification_5.svg');
+
   $AssetsIconsLogoGen get logo => const $AssetsIconsLogoGen();
 
   /// File path: assets/icons/menu_burger.svg
@@ -38,10 +52,14 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        appDriver,
+        appSmartmind,
+        appStevor,
         certification1,
         certification2,
         certification3,
         certification4,
+        certification5,
         menuBurger
       ];
 }
@@ -64,22 +82,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/avatar_skill.png
   AssetGenImage get avatarSkill =>
       const AssetGenImage('assets/images/avatar_skill.png');
-
-  /// File path: assets/images/certification_1.png
-  AssetGenImage get certification1 =>
-      const AssetGenImage('assets/images/certification_1.png');
-
-  /// File path: assets/images/certification_2.png
-  AssetGenImage get certification2 =>
-      const AssetGenImage('assets/images/certification_2.png');
-
-  /// File path: assets/images/certification_3.png
-  AssetGenImage get certification3 =>
-      const AssetGenImage('assets/images/certification_3.png');
-
-  /// File path: assets/images/certification_4.png
-  AssetGenImage get certification4 =>
-      const AssetGenImage('assets/images/certification_4.png');
 
   /// File path: assets/images/certification_5.png
   AssetGenImage get certification5 =>
@@ -111,10 +113,6 @@ class $AssetsImagesGen {
         appSmartmind,
         appStevor,
         avatarSkill,
-        certification1,
-        certification2,
-        certification3,
-        certification4,
         certification5,
         iconLaptop,
         logoStevor,
