@@ -14,6 +14,22 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/certification_1.svg
+  SvgGenImage get certification1 =>
+      const SvgGenImage('assets/icons/certification_1.svg');
+
+  /// File path: assets/icons/certification_2.svg
+  SvgGenImage get certification2 =>
+      const SvgGenImage('assets/icons/certification_2.svg');
+
+  /// File path: assets/icons/certification_3.svg
+  SvgGenImage get certification3 =>
+      const SvgGenImage('assets/icons/certification_3.svg');
+
+  /// File path: assets/icons/certification_4.svg
+  SvgGenImage get certification4 =>
+      const SvgGenImage('assets/icons/certification_4.svg');
+
   $AssetsIconsLogoGen get logo => const $AssetsIconsLogoGen();
 
   /// File path: assets/icons/menu_burger.svg
@@ -21,7 +37,13 @@ class $AssetsIconsGen {
       const SvgGenImage('assets/icons/menu_burger.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [menuBurger];
+  List<SvgGenImage> get values => [
+        certification1,
+        certification2,
+        certification3,
+        certification4,
+        menuBurger
+      ];
 }
 
 class $AssetsImagesGen {

@@ -5,7 +5,7 @@ import 'package:haidar_website/theme/colors.dart';
 class HomeCertificateCardUi extends StatelessWidget {
   const HomeCertificateCardUi({super.key});
 
-  void _showImageDialog(BuildContext context, AssetGenImage image) {
+  void _showImageDialog(BuildContext context, SvgGenImage image) {
     bool isMobile = MediaQuery.of(context).size.width < 768;
 
     showDialog(
@@ -38,7 +38,7 @@ class HomeCertificateCardUi extends StatelessWidget {
                     child: InteractiveViewer(
                       minScale: 0.5,
                       maxScale: 3.0,
-                      child: image.image(fit: BoxFit.contain),
+                      child: image.svg(fit: BoxFit.contain),
                     ),
                   ),
                 ),
@@ -75,10 +75,10 @@ class HomeCertificateCardUi extends StatelessWidget {
         bool isMobile = MediaQuery.of(context).size.width < 768;
 
         final certImages = [
-          Assets.images.certification2,
-          Assets.images.certification3,
-          Assets.images.certification4,
-          Assets.images.certification5,
+          Assets.icons.certification2,
+          Assets.icons.certification3,
+          Assets.icons.certification4,
+          // Assets.icons.certification5,
         ];
 
         return Container(
@@ -157,7 +157,7 @@ class HomeCertificateCardUi extends StatelessWidget {
 }
 
 class _CertificateCard extends StatefulWidget {
-  final AssetGenImage image;
+  final SvgGenImage image;
   final VoidCallback onTap;
   final bool isMobile;
 
@@ -216,7 +216,7 @@ class _CertificateCardState extends State<_CertificateCard> {
             borderRadius: BorderRadius.circular(widget.isMobile ? 6 : 8),
             child: InkWell(
               onTap: widget.onTap,
-              child: widget.image.image(
+              child: widget.image.svg(
                 fit: BoxFit.cover,
               ),
             ),
